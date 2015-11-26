@@ -9,17 +9,14 @@ env:
   - TOX_ENV=py34
   - TOX_ENV=py35
 
-matrix:
-  fast_finish: true
-  allow_failures:
-    - env: TOX_ENV=py35
-
 install:
-  - pip install tox
+  - pip install -r ./requirements/requirements-testing.txt
+  - pip install pylint coveralls
 
 script:
-  - tox -e $TOX_ENV
+  - pylint ./data_structures/undirected_graph.py
+  - python ./tests/test_searching.py
 
 after_success:
   - pip install codecov
-  - codecov -e TOX_ENV
+  - coveralls
