@@ -10,13 +10,14 @@ env:
   - TOX_ENV=py35
 
 install:
+  - pip install --upgrade pip
   - pip install -r ./requirements/requirements-testing.txt
   - pip install pylint coveralls
+  - pip install codecov
 
 script:
-  - pylint ./data_structures/undirected_graph.py
-  - python ./tests/test_searching.py
+  - pylint ./algorithm/data_structures/undirected_graph.py
+  - python ./tests/test_searching.py -v
 
 after_success:
-  - pip install codecov
   - coveralls
