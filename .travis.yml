@@ -1,19 +1,14 @@
 language: python
 
-sudo: false
-
-env:
-  - TOX_ENV=py27
-  - TOX_ENV=py32
-  - TOX_ENV=py33
-  - TOX_ENV=py34
-  - TOX_ENV=py35
+python:
+  - "2.7"
+  - "3.5"
 
 install:
   - pip install --upgrade pip
   - pip install -r ./requirements/requirements-testing.txt
   - pip install pylint coveralls
-  - pip install codecov
+  - pip install codecov selenium
 
 script:
   - pylint ./algorithm/data_structures/undirected_graph.py
