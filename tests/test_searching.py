@@ -1,5 +1,6 @@
 """ Unit Tests for searching """
 import unittest
+import HTMLTestRunner
 
 from algorithms.searching import (
     binary_search,
@@ -186,4 +187,5 @@ class TestBreadthFirstSearch(unittest.TestCase):
 
 """
 if __name__ == "__main__":
-    unittest.main()
+    #unittest.main()
+    HTMLTestRunner.main()
